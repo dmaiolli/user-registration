@@ -1,0 +1,11 @@
+INDEX VERSION 1.131+/home/dmaiolli/github-projects/user-registration/.metadata/.plugins/org.eclipse.jdt.core
+3557871766.index
+1434462917.index
+2259254810.index
+1656639312.index
+1661826660.index
+1064405100.index
+1023488194.index
+3949366491.index
+4198694258.index
+2321056166.index

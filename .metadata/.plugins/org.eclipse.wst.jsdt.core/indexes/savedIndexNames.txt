@@ -1,0 +1,5 @@
+INDEX VERSION 1.4+/home/dmaiolli/github-projects/user-registration/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+4131617145.index
+838757142.index
+3681969641.index
+2930672552.index

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+<ui:composition template="_navbar.xhtml">
+	<ui:define name="content">
+		<p:messages id="messages">
+			<p:autoUpdate />
+		</p:messages>
+
+		<h:form>
+			<p:card class="card-form">
+				<f:facet name="title">
+		        Cadastrar usuario
+		    </f:facet>
+
+				<h:panelGrid columns="2">
+					<p:outputLabel for="name" value="Nome" />
+					<p:inputText id="name" value="#{userBean.usuario.nome}"
+						required="true" validatorMessage="Nome é obrigatório">
+						<f:ajax event="blur" render="messages" />
+					</p:inputText>
+
+					<p:outputLabel for="email" value="Email" />
+					<p:inputText id="email" value="#{userBean.usuario.email}"
+						validatorMessage="Insira um email válido">
+						<f:validateRegex
+							pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+						<f:ajax event="blur" render="messages" />
+					</p:inputText>
+
+					<p:outputLabel for="dataNascimento" value="Data de Nascimento" />
+					<p:datePicker id="dataNascimento"
+						value="#{userBean.usuario.dataNascimento}">
+						<f:ajax event="blur" render="messages" />
+					</p:datePicker>
+
+
+					<p:outputLabel for="senha" value="Senha">
+						<p:password id="senha" value="#{userBean.usuario.senha}"
+							feedback="true" toggleMask="true" redisplay="true"
+							required="true" match="confirma_senha"
+							validatorMessage="Senhas não correspondem" />
+						<f:ajax event="blur" render="messages" />
+					</p:outputLabel>
+
+					<p:outputLabel for="confirma_senha" value="Confirme a senha">
+						<p:password id="confirma_senha" value="#{userBean.usuario.senha}"
+							toggleMask="true" redisplay="true" required="true" />
+						<f:ajax event="blur" render="messages" />
+					</p:outputLabel>
+
+				</h:panelGrid>
+
+
+				<f:facet name="footer">
+					<p:commandButton icon="pi pi-check" value="Cadastrar usuário"
+						action="#{userBean.save}">
+						<p:ajax execute="@form" />
+					</p:commandButton>
+					<p:commandButton icon="pi pi-times" value="Cancel"
+						styleClass="ui-button-secondary" style="margin-left: .5em" />
+				</f:facet>
+			</p:card>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+
+</html>
